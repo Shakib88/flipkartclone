@@ -1,6 +1,6 @@
-import { Box, Button, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
+import { Badge, Box, Button, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
+import {ShoppingCart} from '@material-ui/icons';
 
 const useStyle = makeStyles({
     login:{
@@ -11,13 +11,26 @@ const useStyle = makeStyles({
         fontWeight:600,
         borderRadius:2,
         padding: '5px 40px',
+        boxShadow: 'none'
 
     },
 
     wrapper:{
-        margin: '0 5% 0 auto',
-        display: 'flex'
 
+
+        marginLeft:'70%',
+        margin: '0 5% 0 auto',
+        display: 'flex',
+        '& > *' : {
+            marginRight:50,
+            fontSize: 12,
+            alignItem: 'center'
+        }
+
+    },
+
+    container:{
+        display: 'flex',
     }
 
 });
@@ -29,11 +42,15 @@ const HeaderButtons = () => {
     return (
         <div>
             <Box className={classes.wrapper}>
-                    <Button variant='contained' className={classes.login}>Login</Button>
-                    <Typography>More</Typography>
+                    <Button variant="contained" className={classes.login}>Login</Button>
+                    <Typography style={{fontSize:17}}>More</Typography>
 
-                    <Box>
-                        <Typography>Cart</Typography>
+                    <Box className={classes.container}>
+                        <Badge badgeContent={2} color="secondary">
+                            <ShoppingCart/>
+                        </Badge>
+
+                        <Typography style={{marginLeft:10}}>Cart</Typography>
                     </Box>
             </Box>
         </div>
